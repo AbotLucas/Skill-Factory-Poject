@@ -1,6 +1,11 @@
 package models
+
+import (
+	"time"
+	"go.mongodb.org/mongo-driver/bson/primitive"
+)
 /* Declaración de la estructura usuario para MongoDB */
-type usuario struct {
+type Usuario struct {
 	/* El ID de MongoDB no es un numero, es un tipo de dato binario
 	de un tipo llamado ObjectID, es un slice de bits, que nos llevara a 
 	utilizar luego algunas funciones especiales por este tipo de datos */

@@ -1,7 +1,7 @@
 package routers
 
 import (
-	"enconding/json"
+	"encoding/json"
 	"net/http"
 	"github.com/abotlucas/microblogging/bd"
 	"github.com/abotlucas/microblogging/models"
@@ -11,17 +11,17 @@ import (
 func Registro(w http.ResponseWriter, r *http.Request) {
 
 	var user models.Usuario
-	err := json.NewDecoder(r.Body).Decode(&t)
+	err := json.NewDecoder(r.Body).Decode(&user)
 	if err != nil {
 		http.Error(w, "Error en los datos recibidos"+err.Error(),400)
 		return
 	}
 	/* Si no hubo error con el Body hago unas validaciones */
-	if len(user.Email == 0) {
+	if len(user.Email) == 0 {
 		http.Error(w, "El mail de usuario es requerido", 400 )
 		return
 	}
-	if len(user.Password < 6) {
+	if len(user.Password) < 6 {
 		http.Error(w, "Debe especificar un password de al menos 6 caracteres", 400 )
 		return
 	}
@@ -34,7 +34,7 @@ func Registro(w http.ResponseWriter, r *http.Request) {
 	
 	_, status, err := bd.InsertoRegistro(user)
 	if err != nil {
-		http.Error(w, "Ocurrio un error al intentar realizar el registro de usuario")
+		http.Error(w, "Ocurrio un error al intentar realizar el registro de usuario", 400)
 		return
 	}
 
@@ -43,5 +43,5 @@ func Registro(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "No se ha logrado insertar el registro del usuario", 400)
 		return
 	}
-	w.WriteHEader(http.StatusCreated)
+	w.WriteHeader(http.StatusCreated)
 }
