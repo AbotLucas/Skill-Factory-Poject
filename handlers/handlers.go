@@ -19,7 +19,7 @@ func Manejadores(){
     /* Si alguien entro a /registro con metodo POST debe ejecutar el middleware de ChequeoBD
     Y le paso la funcion de routers.Registro */
     /* Por cada endPoint vamos a tener un renglon de codigo que permita manejar la funcion */
-    router.HandleFunc("/regitro", middlew.ChequeoBD(routers.Registro)).Methods("POST")
+    router.HandleFunc("/registro", middlew.ChequeoBD(routers.Registro)).Methods("POST")
 
     PORT := os.Getenv("PORT")
     if PORT == ""{
