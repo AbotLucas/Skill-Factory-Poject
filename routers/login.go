@@ -18,6 +18,8 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	//Será de tipo Json
 	w.Header().Add("content-type", "application/json")
 	var usu models.Usuario
+	err := json.NewDecoder(r.Body).Decode(&usu)
+
 	if err != nil {
 		http.Error(w, "Usuario y/o contraseña inválidos "+err.Error(), 400)
 		return

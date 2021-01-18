@@ -13,7 +13,7 @@ func IntentoLogin(email string, password string) (models.Usuario, bool) {
 	}
 	//Ahora comparo la pass con la de la BD
 	//Creo una var slice de bytes
-	passwordEnBytes = []byte(password)
+	passwordEnBytes := []byte(password)
 	//Creo otra variable con la pass que tengo en la BD para el user
 	passEnBDEnBytes := []byte(usu.Password)
 	//Ahora llamo una funcion del package bcrypt que compara las password
