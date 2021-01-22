@@ -15,7 +15,7 @@ func ModificoRegistro(u models.Usuario, ID string) (bool, error) {
 	defer cancel()
 
 	db := MongoCN.Database("microblog")
-	col := db.Coollection("usuarios")
+	col := db.Collection("usuarios")
 
 	/* SUPONGO QUE ME VAN A ENVIAR UN CMPO A MODIFICAR A LA VEZ,
 	por eso me fijo si lo que viene tiene valor (largo mayor a cero) 
@@ -30,27 +30,27 @@ func ModificoRegistro(u models.Usuario, ID string) (bool, error) {
 	if len(u.Apellidos) > 0 {
 		registro["apellidos"] = u.Apellidos
 	}
-	if len(u.fechaNacimiento) > 0 {	
-		registro["fechaNacimiento"] = u.fechaNacimiento
-	}
-	if len(u.avatar) > 0 {	
+
+	registro["fechaNacimiento"] = u.FechaNacimiento
+
+	if len(u.Avatar) > 0 {	
 		registro["avatar"] = u.Avatar
 	}
 	if len(u.Banner) > 0 {	
 		registro["banner"] = u.Banner
 	}
 	if len(u.Biografia) > 0 {	
-		regitro["biografia"] = u.Biografia
+		registro["biografia"] = u.Biografia
 	}
 	if len(u.Ubicacion) > 0 {	
-		regitro["ubicacion"] = u.Ubicacion
+		registro["ubicacion"] = u.Ubicacion
 	}
 	if len(u.SitioWeb) > 0 {	
-		regitro["sitioWeb"] = u.SitioWeb
+		registro["sitioWeb"] = u.SitioWeb
 	}
 
 	updtString := bson.M{
-		"$set": regitro,
+		"$set": registro,
 	}
 	//Paso el object id fromo Hex
 	objID, _ := primitive.ObjectIDFromHex(ID)
