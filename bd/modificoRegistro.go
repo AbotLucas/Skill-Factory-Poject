@@ -14,7 +14,7 @@ func ModificoRegistro(u models.Usuario, ID string) (bool, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
-	db := MongoCN.Database("microblog")
+	db := MongoCN.Database("microblogging")
 	col := db.Collection("usuarios")
 
 	/* SUPONGO QUE ME VAN A ENVIAR UN CMPO A MODIFICAR A LA VEZ,

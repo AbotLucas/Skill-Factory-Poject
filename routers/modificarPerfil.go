@@ -22,7 +22,7 @@ func ModificarPerfil(w http.ResponseWriter, r *http.Request) {
 	}
 
 	var status bool
-
+	
 	status, err = bd.ModificoRegistro(usu, IDUsuario)
 	//IDUsuario es la variable global que setamos antes con el ID
 	if err != nil {
