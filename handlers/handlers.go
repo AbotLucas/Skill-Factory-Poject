@@ -24,8 +24,10 @@ func Manejadores(){
     //Login
     router.HandleFunc("/login", middlew.ChequeoBD(routers.Login)).Methods("POST")
     //VerPerfil 
-    router.HandleFunc("/verperfil", middlew.ValidoJWT(routers.VerPerfil)).Methods("GET")    
-   
+    router.HandleFunc("/verperfil", middlew.ChequeoBD((middlew.ValidoJWT(routers.VerPerfil)))).Methods("GET")
+    //ModificarPerfil
+    router.HandleFunc("/modificarperfil", middlew.ChequeoBD(middlew.ValidoJWT(routers.ModificarPerfil()))).Methods("PUT")
+    
     PORT := os.Getenv("PORT")
     if PORT == ""{
         PORT = "8080"
