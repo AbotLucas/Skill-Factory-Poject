@@ -29,7 +29,7 @@ func Manejadores() {
 	//Tweet
 	router.HandleFunc("/tweet", middlew.ChequeoBD(middlew.ValidoJWT(routers.GraboTweet))).Methods("POST")
 	//BOrrarTweet
-	router.HandleFunc("/borrartweet", middlew.ChequeoBD(middlew.ValidoJWT(routers.BorrarTweet))).Methods("DELETE")
+	router.HandleFunc("/borrotweet", middlew.ChequeoBD(middlew.ValidoJWT(routers.BorroTweet))).Methods("DELETE")
 	//LeoTweets
 	router.HandleFunc("/leotweets", middlew.ChequeoBD(middlew.ValidoJWT(routers.LeoTweets))).Methods("GET")
 

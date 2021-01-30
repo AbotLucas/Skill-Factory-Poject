@@ -1,14 +1,14 @@
 package routers
 
 import (
-	"encoding/json"
 	"net/http"
 
 	"github.com/abotlucas/microblogging/bd"
 	//"github.com/abotlucas/microblogging/models"
 )
 
-func BorrarTweet(w http.ResponseWriter, r *http.Request) {
+/* BorroTweet permite eliminar un tweet determinado */
+func BorroTweet(w http.ResponseWriter, r *http.Request) {
 
 	idTweet := r.URL.Query().Get("id")
 	if len(idTweet) < 1 {
@@ -16,16 +16,15 @@ func BorrarTweet(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// si tdo anduvo bien:
-	tweet, err := bd.BorrarTweet(idTweet)
+	err := bd.BorroTweet(idTweet, IDUsuario)
 	if err != nil {
 		http.Error(w, "Ocurrio un errro al intentar buscar el registro", 400)
 		return
 	}
-	
+
+	/* En la sig línea le decimos al navegador que si va respuesta será del tipo json
+	   aunque no le mandamos respuesta, es una buena práctica, por si más adelante queremos enviarle una */
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
-	json.NewEncoder(w).Encode(tweet)
-
-
 
 }
