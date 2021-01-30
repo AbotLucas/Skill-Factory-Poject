@@ -8,9 +8,9 @@ import (
 	"github.com/abotlucas/microblogging/models"
 )
 
-/* ModificarPerfil, modifica el perfil de user */
+/*ModificarPerfil modifica el perfil de user */
 func ModificarPerfil(w http.ResponseWriter, r *http.Request) {
-	
+
 	var usu models.Usuario
 
 	err := json.NewDecoder(r.Body).Decode(&usu)
@@ -22,7 +22,7 @@ func ModificarPerfil(w http.ResponseWriter, r *http.Request) {
 	}
 
 	var status bool
-	
+
 	status, err = bd.ModificoRegistro(usu, IDUsuario)
 	//IDUsuario es la variable global que setamos antes con el ID
 	if err != nil {

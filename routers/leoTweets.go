@@ -9,7 +9,7 @@ import (
 	"github.com/abotlucas/microblogging/models"
 )
 
-/* LeoTweets - lee los tweets */
+/*LeoTweets - lee los tweets */
 func LeoTweets(w http.ResponseWriter, r *http.Request) {
 	/* Envio el id de usuario para recolectar los id */
 	ID := r.URL.Query().Get("id")

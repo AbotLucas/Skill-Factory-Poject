@@ -8,7 +8,7 @@ import (
 	"github.com/abotlucas/microblogging/bd"
 )
 
-/* ObtenerAvatar envia el avatar al http */
+/*ObtenerAvatar envia el avatar al http */
 func ObtenerAvatar(w http.ResponseWriter, r *http.Request) {
 
 	/* DE la URL vamos a obtener nuestro parametro id del usuario

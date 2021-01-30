@@ -8,7 +8,7 @@ import (
 	"github.com/abotlucas/microblogging/bd"
 )
 
-/* ObtenerBanner envia el avatar al http */
+/*ObtenerBanner envia el avatar al http */
 func ObtenerBanner(w http.ResponseWriter, r *http.Request) {
 
 	/* DE la URL vamos a obtener nuestro parametro id del usuario

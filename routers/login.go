@@ -10,7 +10,7 @@ import (
 	"github.com/abotlucas/microblogging/models"
 )
 
-/* Login realiza el login de un user
+/*Login realiza el login de un user
 Recibe como parametro lo mismo que todos los endpoints y no retorna nada,
 como los otros endpoints, son practicamente metodos */
 func Login(w http.ResponseWriter, r *http.Request) {
@@ -39,8 +39,8 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	//Si el token se genero:
-	resp := models.RespuestaLogin {
-		Token : jwtKey,
+	resp := models.RespuestaLogin{
+		Token: jwtKey,
 	}
 
 	w.Header().Set("Content-Type", "application/json")
@@ -49,10 +49,10 @@ func Login(w http.ResponseWriter, r *http.Request) {
 
 	//Tambien generaremos una cookie
 	//Generamos un campo fecha para ver la expiracion de la cookie
-	expirationTime := time.Now().Add(24*time.Hour)
+	expirationTime := time.Now().Add(24 * time.Hour)
 	http.SetCookie(w, &http.Cookie{
-		Name: "token",
-		Value: jwtKey,
+		Name:    "token",
+		Value:   jwtKey,
 		Expires: expirationTime,
 	})
 }

@@ -7,7 +7,7 @@ import (
 	"github.com/abotlucas/microblogging/bd"
 )
 
-/*VerPerfil */
+/*VerPerfil nos muestra el perfil de un user*/
 func VerPerfil(w http.ResponseWriter, r *http.Request) {
 	ID := r.URL.Query().Get("id")
 	if len(ID) < 1 {
