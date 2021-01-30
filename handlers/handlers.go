@@ -11,7 +11,7 @@ import (
 	"github.com/rs/cors"
 )
 
-/*Manejadores: seteo mi puerto, el handler y pongo a escuchar al servidor*/
+/*Manejadores seteo mi puerto, el handler y pongo a escuchar al servidor*/
 func Manejadores() {
 	router := mux.NewRouter()
 
@@ -32,6 +32,14 @@ func Manejadores() {
 	router.HandleFunc("/borrotweet", middlew.ChequeoBD(middlew.ValidoJWT(routers.BorroTweet))).Methods("DELETE")
 	//LeoTweets
 	router.HandleFunc("/leotweets", middlew.ChequeoBD(middlew.ValidoJWT(routers.LeoTweets))).Methods("GET")
+	//SubirAvatar
+	router.HandleFunc("/subirAvatar", middlew.ChequeoBD(middlew.ValidoJWT(routers.SubirAvatar))).Methods("POST")
+	//ObtenerAvatar
+	router.HandleFunc("/obtenerAvatar", middlew.ChequeoBD(routers.ObtenerAvatar)).Methods("GET")
+	//SubirBanner
+	router.HandleFunc("/subirBanner", middlew.ChequeoBD(middlew.ValidoJWT(routers.SubirBanner))).Methods("POST")
+	//ObtenerBanner
+	router.HandleFunc("/obtenerBanner", middlew.ChequeoBD(routers.ObtenerBanner)).Methods("GET")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {

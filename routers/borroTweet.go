@@ -7,7 +7,7 @@ import (
 	//"github.com/abotlucas/microblogging/models"
 )
 
-/* BorroTweet permite eliminar un tweet determinado */
+/*BorroTweet permite eliminar un tweet determinado */
 func BorroTweet(w http.ResponseWriter, r *http.Request) {
 
 	idTweet := r.URL.Query().Get("id")

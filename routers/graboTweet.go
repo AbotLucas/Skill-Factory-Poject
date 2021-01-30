@@ -9,7 +9,7 @@ import (
 	"github.com/abotlucas/microblogging/models"
 )
 
-/* GraboTweet permite grabar el tweet en la Bd */
+/*GraboTweet permite grabar el tweet en la Bd */
 func GraboTweet(w http.ResponseWriter, r *http.Request) {
 	var mensaje models.Tweet
 
@@ -17,9 +17,9 @@ func GraboTweet(w http.ResponseWriter, r *http.Request) {
 	err := json.NewDecoder(r.Body).Decode(&mensaje)
 
 	registro := models.GraboTweet{
-		UserID: IDUsuario,
+		UserID:  IDUsuario,
 		Mensaje: mensaje.Mensaje,
-		Fecha: time.Now(),
+		Fecha:   time.Now(),
 	}
 	//Para insertarlo en la base de datos necsitamos mapearlo a un bson
 	_, status, err := bd.InsertoTweet(registro)

@@ -1,13 +1,13 @@
 package routers
 
-import ( 
+import (
 	"encoding/json"
 	"net/http"
 
 	"github.com/abotlucas/microblogging/bd"
 )
 
-/* VerPerfil */
+/*VerPerfil */
 func VerPerfil(w http.ResponseWriter, r *http.Request) {
 	ID := r.URL.Query().Get("id")
 	if len(ID) < 1 {
