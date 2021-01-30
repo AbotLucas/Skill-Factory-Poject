@@ -28,7 +28,7 @@ func ObtenerBanner(w http.ResponseWriter, r *http.Request) {
 	}
 
 	/* Intento abrir el archivo */
-	OpenFile, err := os.Open("uploads/banners" + perfil.Banner)
+	OpenFile, err := os.Open("uploads/banners/" + perfil.Banner)
 	if err != nil {
 		http.Error(w, "Imagen no encontrada", http.StatusBadRequest)
 		return
