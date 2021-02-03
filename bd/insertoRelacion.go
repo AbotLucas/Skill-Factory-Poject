@@ -7,7 +7,7 @@ import (
 	"github.com/abotlucas/microblogging/models"
 )
 
-/* INsertoRelacion - graba la relacion en la bd */
+/*InsertoRelacion - graba la relacion en la bd */
 func InsertoRelacion(relac models.Relacion) (bool, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()

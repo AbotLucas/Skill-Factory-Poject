@@ -3,14 +3,15 @@ package bd
 import (
 	"context"
 	"time"
+
 	"github.com/abotlucas/microblogging/models"
 	"go.mongodb.org/mongo-driver/bson"
 )
 
-/* ChequeoYaExisteUsuario recibe un email x parametro y chequea si ya existe en la bd */
+/*ChequeoYaExisteUsuario recibe un email x parametro y chequea si ya existe en la bd */
 func ChequeoYaExisteUsuario(email string) (models.Usuario, bool, string) {
 	/* ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second) */
-	
+
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 	/* levanto la bd */

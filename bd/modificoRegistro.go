@@ -9,7 +9,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
-/* ModificoRegistro permite modificar el perfil del user */
+/*ModificoRegistro permite modificar el perfil del user */
 func ModificoRegistro(u models.Usuario, ID string) (bool, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
@@ -18,7 +18,7 @@ func ModificoRegistro(u models.Usuario, ID string) (bool, error) {
 	col := db.Collection("usuarios")
 
 	/* SUPONGO QUE ME VAN A ENVIAR UN CMPO A MODIFICAR A LA VEZ,
-	por eso me fijo si lo que viene tiene valor (largo mayor a cero) 
+	por eso me fijo si lo que viene tiene valor (largo mayor a cero)
 	Creamos un mapa de interfaces para armar el registro de actualizacion a la BD
 	poniendole la info que hay que modificar*/
 
@@ -33,19 +33,19 @@ func ModificoRegistro(u models.Usuario, ID string) (bool, error) {
 
 	registro["fechaNacimiento"] = u.FechaNacimiento
 
-	if len(u.Avatar) > 0 {	
+	if len(u.Avatar) > 0 {
 		registro["avatar"] = u.Avatar
 	}
-	if len(u.Banner) > 0 {	
+	if len(u.Banner) > 0 {
 		registro["banner"] = u.Banner
 	}
-	if len(u.Biografia) > 0 {	
+	if len(u.Biografia) > 0 {
 		registro["biografia"] = u.Biografia
 	}
-	if len(u.Ubicacion) > 0 {	
+	if len(u.Ubicacion) > 0 {
 		registro["ubicacion"] = u.Ubicacion
 	}
-	if len(u.SitioWeb) > 0 {	
+	if len(u.SitioWeb) > 0 {
 		registro["sitioWeb"] = u.SitioWeb
 	}
 

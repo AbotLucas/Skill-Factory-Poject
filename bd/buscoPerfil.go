@@ -4,13 +4,13 @@ import (
 	"context"
 	"fmt"
 	"time"
-	
+
 	"github.com/abotlucas/microblogging/models"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
-/* BuscoPerfil - busca un perfil en la BD */
+/*BuscoPerfil - busca un perfil en la BD */
 func BuscoPerfil(ID string) (models.Usuario, error) {
 	//vamos a usar una petición GET, ya que va a venir como parámetro en la URL
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
@@ -32,4 +32,3 @@ func BuscoPerfil(ID string) (models.Usuario, error) {
 	}
 	return perfil, nil
 }
-

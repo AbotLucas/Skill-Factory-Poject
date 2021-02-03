@@ -12,7 +12,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-/* BuscoTweets - busca los tweets de un id de usuario en la bd */
+/*LeoTweets - busca los tweets de un id de usuario en la bd */
 func LeoTweets(ID string, pagina int64) ([]*models.DevuelvoTweets, bool) {
 	//Vamos a usar una peticion get, ya que vendra por parametro el id
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)

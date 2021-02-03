@@ -48,6 +48,8 @@ func Manejadores() {
 	router.HandleFunc("/consultaRelacion", middlew.ChequeoBD(middlew.ValidoJWT(routers.ConsultaRelacion))).Methods("GET")
 	//ListaUSuarios
 	router.HandleFunc("/listaUsuarios", middlew.ChequeoBD(middlew.ValidoJWT(routers.ListaUsuarios))).Methods("GET")
+	//LeoTweetsSeguidores
+	router.HandleFunc("/leoTweetsSeguidores", middlew.ChequeoBD(middlew.ValidoJWT(routers.ListaUsuarios))).Methods("GET")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
